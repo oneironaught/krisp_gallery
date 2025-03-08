@@ -1,14 +1,22 @@
 /* General Styling */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
 body {
     font-family: Arial, sans-serif;
     background-color: #333;
     color: white;
-    margin: 0;
-    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 header {
-    background-color: #1a1a1a;
+    background-color: #000;
     padding: 20px;
     text-align: center;
 }
@@ -18,11 +26,33 @@ header h1 {
     font-size: 2.5em;
 }
 
+/* Full-Viewport Logo Section */
+.hero {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #000;
+}
+
+.hero-logo {
+    max-width: 100%;
+    max-height: 100%;
+    width: 100%;
+    height: 90%;
+    opacity: 0;
+    transform: scale(0.9);
+    transition: opacity 1s ease, transform 1s ease;
+}
+
 /* Navigation */
 nav {
-    background-color: #444;
+    background-color: #000;
     padding: 10px 0;
+    top: 0;
     text-align: center;
+    position: sticky;
 }
 
 nav a {
@@ -30,10 +60,17 @@ nav a {
     text-decoration: none;
     margin: 0 15px;
     font-size: 1.1em;
+    transition: color 0.3s ease, transform 0.3s ease;
 }
 
 nav a:hover {
     color: #ddd;
+    transform: scale(1.1);
+}
+
+nav a.active {
+    color: #bbb;
+    font-weight: bold;
 }
 
 /* Main Content */
@@ -41,12 +78,132 @@ main {
     padding: 20px;
     max-width: 1200px;
     margin: 0 auto;
+    flex: 1;
+}
+
+/* Landing Page Content */
+.landing-content {
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.landing-content p {
+    font-size: 1.2em;
+    max-width: 600px;
+    margin: 20px auto;
+}
+
+.landing-content a {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #555;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.landing-content a:hover {
+    background-color: #777;
+    transform: scale(1.05);
+}
+
+/* News Section */
+.news-section {
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.news-section h2 {
+    color: #fff;
+    border-bottom: 2px solid #fff;
+    padding-bottom: 5px;
+    margin-bottom: 20px;
+}
+
+.news-list {
+    list-style: none;
+    padding: 0;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.news-list li {
+    background-color: #444;
+    margin: 10px 0;
+    padding: 15px;
+    border-radius: 5px;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.news-list li:hover {
+    transform: scale(1.02);
+    background-color: #555;
+}
+
+.news-date {
+    font-size: 0.9em;
+    color: #ddd;
+    margin-bottom: 5px;
+}
+
+/* Event Calendar Section */
+.event-calendar {
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.event-calendar h2 {
+    color: #fff;
+    border-bottom: 2px solid #fff;
+    padding-bottom: 5px;
+    margin-bottom: 20px;
+}
+
+.event-list {
+    list-style: none;
+    padding: 0;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.event-list li {
+    background-color: #444;
+    margin: 10px 0;
+    padding: 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.event-list li:hover {
+    transform: scale(1.02);
+    background-color: #555;
+}
+
+.event-date {
+    font-size: 0.9em;
+    color: #ddd;
+    margin-bottom: 5px;
+}
+
+.event-countdown {
+    font-size: 0.9em;
+    color: #bbb;
 }
 
 h2 {
     color: #fff;
     border-bottom: 2px solid #fff;
     padding-bottom: 5px;
+}
+
+/* Center Main Photo on Other Pages */
+main img:not(.hero-logo) {
+    display: block;
+    margin: 20px auto;
+    max-width: 100%;
+    height: auto;
 }
 
 /* Menu Filtering */
@@ -62,18 +219,12 @@ h2 {
     color: white;
     border: none;
     cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .filter-buttons button:hover {
     background-color: #777;
-}
-
-.menu-item {
-    display: none;
-}
-
-.menu-item.active {
-    display: block;
+    transform: scale(1.05);
 }
 
 /* Event Countdown */
@@ -97,6 +248,11 @@ h2 {
     object-fit: cover;
     border: 2px solid #fff;
     cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.image-grid img:hover {
+    transform: scale(1.05);
 }
 
 .lightbox {
@@ -122,6 +278,7 @@ form {
     flex-direction: column;
     gap: 10px;
     max-width: 400px;
+    margin: 0 auto;
 }
 
 form input, form textarea {
@@ -137,9 +294,30 @@ form button {
     color: white;
     border: none;
     cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 form button:hover {
+    background-color: #777;
+    transform: scale(1.05);
+}
+
+/* Scroll-to-Top Button */
+#scrollToTop {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 10px 15px;
+    background-color: #555;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: none;
+    transition: background-color 0.3s ease, opacity 0.3s ease;
+}
+
+#scrollToTop:hover {
     background-color: #777;
 }
 
@@ -148,7 +326,76 @@ footer {
     text-align: center;
     padding: 10px;
     background-color: #1a1a1a;
-    position: fixed;
-    bottom: 0;
     width: 100%;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2em;
+    }
+
+    nav {
+        padding: 5px 0;
+    }
+
+    nav a {
+        display: block;
+        margin: 10px 0;
+        font-size: 1em;
+    }
+
+    main {
+        padding: 10px;
+    }
+
+    .hero-logo {
+        max-width: 90%;
+        max-height: 90%;
+    }
+
+    .filter-buttons button {
+        padding: 8px 15px;
+        margin: 5px;
+    }
+
+    .image-grid img {
+        width: 100%;
+        max-width: 300px;
+        height: auto;
+    }
+
+    form {
+        max-width: 100%;
+    }
+
+    .news-list li, .event-list li {
+        padding: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.5em;
+    }
+
+    nav a {
+        font-size: 0.9em;
+    }
+
+    h2 {
+        font-size: 1.5em;
+    }
+
+    .landing-content p {
+        font-size: 1em;
+    }
+
+    .countdown, .event-countdown {
+        font-size: 1em;
+    }
+
+    .news-date, .event-date {
+        font-size: 0.8em;
+    }
 }

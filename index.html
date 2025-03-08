@@ -8,23 +8,67 @@
 </head>
 <body>
     <header>
-        <h1>Krisp Gallery</h1>
-    </header>
+    <section class="hero">
+        <img src="assets/images/krisp_logo.jpg" alt="Krisp Gallery Logo" class="hero-logo">
+    </section>
+</header>
     <nav>
-        <a href="index.html">Home</a>
+        <div id="navbar">
         <a href="menu.html">Menu</a>
         <a href="events.html">Events</a>
         <a href="gallery.html">Gallery</a>
         <a href="contact.html">Contact</a>
         <a href="about.html">About</a>
+    </div>
     </nav>
+    
     <main>
-        <h2>Welcome to Krisp Gallery</h2>
-        <p>Enjoy a unique blend of craft drinks, delicious food, and local art in the heart of Weslaco, TX. Join us for a cozy night out!</p>
-        <img src="https://loremflickr.com/600/400/bar" alt="Krisp Gallery Interior">
+        <div class="landing-content">
+            <p>Welcome to Krisp Gallery, a unique blend of craft drinks, delicious food, and local art in the heart of Weslaco, TX.</p>
+            <a href="about.html">Learn More</a>
+        </div>
+        <div class="news-section">
+            <h2>Latest News</h2>
+            <ul class="news-list">
+                <li>
+                    <div class="news-date">March 8, 2025</div>
+                    <p>New Spring Menu Launched! Check out our refreshed drink and food offerings.</p>
+                </li>
+                <li>
+                    <div class="news-date">March 1, 2025</div>
+                    <p>Upcoming Art Exhibit: Local artist showcase starts March 22.</p>
+                </li>
+                <li>
+                    <div class="news-date">February 20, 2025</div>
+                    <p>Live Music Night was a hit! Join us again on March 15.</p>
+                </li>
+            </ul>
+        </div>
+        <div class="event-calendar">
+            <h2>Upcoming Events</h2>
+            <ul class="event-list">
+                <li data-date="2025-03-15T19:00:00">
+                    <div class="event-date">March 15, 2025</div>
+                    <p>Live Music Night</p>
+                    <span class="event-countdown" id="event-countdown-1"></span>
+                </li>
+                <li data-date="2025-03-22T18:00:00">
+                    <div class="event-date">March 22, 2025</div>
+                    <p>Art Exhibition Opening</p>
+                    <span class="event-countdown" id="event-countdown-2"></span>
+                </li>
+                <li data-date="2025-03-29T20:00:00">
+                    <div class="event-date">March 29, 2025</div>
+                    <p>Trivia Night</p>
+                    <span class="event-countdown" id="event-countdown-3"></span>
+                </li>
+            </ul>
+        </div>
     </main>
     <footer>
-        <p>&copy; 2025 Krisp Gallery. All rights reserved.</p>
+        <p>© 2025 Krisp Gallery. All rights reserved.</p>
     </footer>
+    <button id="scrollToTop" title="Back to Top">↑</button>
+    <script src="script.js"></script>
 </body>
 </html>
