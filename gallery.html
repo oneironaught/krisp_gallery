@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Krisp Gallery - Gallery</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Krisp Gallery</h1>
+    </header>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="menu.html">Menu</a>
+        <a href="events.html">Events</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="contact.html">Contact</a>
+        <a href="about.html">About</a>
+    </nav>
+    <main>
+        <h2>Gallery</h2>
+        <div class="image-grid">
+            <img src="https://loremflickr.com/300/200/bar" alt="Bar Event 1" onclick="openLightbox(this.src)">
+            <img src="https://loremflickr.com/300/200/art" alt="Art Display 1" onclick="openLightbox(this.src)">
+            <img src="https://loremflickr.com/300/200/music" alt="Live Music" onclick="openLightbox(this.src)">
+            <img src="https://loremflickr.com/300/200/drinks" alt="Drinks" onclick="openLightbox(this.src)">
+        </div>
+        <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+            <img id="lightbox-img" src="" alt="Lightbox Image">
+        </div>
+    </main>
+    <footer>
+        <p>© 2025 Krisp Gallery. All rights reserved.</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>

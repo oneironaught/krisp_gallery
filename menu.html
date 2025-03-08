@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Krisp Gallery - Menu</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Krisp Gallery</h1>
+    </header>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="menu.html">Menu</a>
+        <a href="events.html">Events</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="contact.html">Contact</a>
+        <a href="about.html">About</a>
+    </nav>
+    <main>
+        <h2>Menu</h2>
+        <div class="filter-buttons">
+            <button onclick="filterMenu('all')">All</button>
+            <button onclick="filterMenu('drinks')">Drinks</button>
+            <button onclick="filterMenu('food')">Food</button>
+        </div>
+        <div class="menu-item drinks active">
+            <h3>Drinks</h3>
+            <ul>
+                <li>Beer - $5</li>
+                <li>Wine - $7</li>
+                <li>Cocktail - $8</li>
+            </ul>
+        </div>
+        <div class="menu-item food active">
+            <h3>Food</h3>
+            <ul>
+                <li>Burger - $10</li>
+                <li>Fries - $4</li>
+                <li>Salad - $6</li>
+            </ul>
+        </div>
+    </main>
+    <footer>
+        <p>© 2025 Krisp Gallery. All rights reserved.</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
