@@ -1,3 +1,12 @@
+// Hamburger Menu Toggle
+const hamburger = document.querySelector('.hamburger');
+const navLinks = document.querySelector('.nav-links');
+
+hamburger.addEventListener('click', () => {
+    navLinks.classList.toggle('open');
+    hamburger.textContent = navLinks.classList.contains('open') ? '✕' : '☰';
+});
+
 // Smooth Scrolling for Navigation Links
 document.querySelectorAll('nav a').forEach(link => {
     link.addEventListener('click', function(e) {
@@ -6,11 +15,14 @@ document.querySelectorAll('nav a').forEach(link => {
         const currentPage = window.location.pathname.split('/').pop() || 'index.html';
 
         if (href === 'index.html' && currentPage === 'index.html') {
-            // If already on index.html, scroll to top
             window.scrollTo({ top: 0, behavior: 'smooth' });
         } else {
-            // Navigate to the new page
             window.location.href = href;
+        }
+        // Collapse menu on link click (mobile)
+        if (window.innerWidth <= 768) {
+            navLinks.classList.remove('open');
+            hamburger.textContent = '☰';
         }
     });
 });
@@ -50,6 +62,22 @@ function highlightNav() {
     });
 }
 window.addEventListener('load', highlightNav);
+
+// Nav Bar Collapse/Uncollapse on Scroll (Mobile)
+let lastScrollY = window.scrollY;
+window.addEventListener('scroll', () => {
+    if (window.innerWidth <= 768) {
+        const nav = document.querySelector('nav');
+        if (window.scrollY > lastScrollY && window.scrollY > 50) {
+            nav.style.transform = 'translateY(-100%)';
+            navLinks.classList.remove('open');
+            hamburger.textContent = '☰';
+        } else if (window.scrollY < lastScrollY) {
+            nav.style.transform = 'translateY(0)';
+        }
+        lastScrollY = window.scrollY;
+    }
+});
 
 // Event Calendar Countdown
 function updateEventCountdowns() {
