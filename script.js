@@ -3,9 +3,13 @@ document.querySelectorAll('nav a').forEach(link => {
     link.addEventListener('click', function(e) {
         e.preventDefault();
         const href = this.getAttribute('href');
-        if (href === 'index.html') {
+        const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+
+        if (href === 'index.html' && currentPage === 'index.html') {
+            // If already on index.html, scroll to top
             window.scrollTo({ top: 0, behavior: 'smooth' });
         } else {
+            // Navigate to the new page
             window.location.href = href;
         }
     });
